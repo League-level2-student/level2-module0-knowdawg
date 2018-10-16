@@ -1,8 +1,68 @@
 package arrays;
 
-public class _01_RobotRace {
-	//1. make a main method
+import java.util.Random;
 
+import org.jointheleague.graphical.robot.Robot;
+
+public class _01_RobotRace {
+	
+	int finished = 0;
+	
+	Random randy = new Random();
+	
+public static void main(String[] args) {
+	
+	_01_RobotRace RR = new _01_RobotRace();
+	RR.setUp();
+	
+}
+
+void setUp(){
+	
+	
+	Robot[] robots = new Robot[6];
+	
+	robots[0] = new Robot();
+	robots[1] = new Robot();
+	robots[2] = new Robot();
+	robots[3] = new Robot();
+	robots[4] = new Robot();
+	robots[5] = new Robot();
+
+	
+	for (int i = 0; i < robots.length; i++) {
+		
+		robots[i].moveTo(300 + (100 * i), 650);
+		robots[i].setSpeed(10000);
+		
+	}
+	
+	while (finished < 60) {
+		
+		for (int i = 0; i < robots.length; i++) {
+			
+			robots[i].move(randy.nextInt(15));
+			
+			
+			if(robots[i].getY() < 0 + 50 ) {
+				
+				finished += 1;
+				
+				robots[i].setSpeed(10);
+				robots[i].move(100);
+				
+				robots[i].moveTo(300 + i * 100, 650);
+				
+			}
+		
+			
+		}
+		
+	}
+	
+
+	
+}
 	//2. create an array of 5 robots.
 
 	//3. use a for loop to initialize the robots.
