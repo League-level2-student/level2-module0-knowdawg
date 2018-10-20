@@ -33,7 +33,8 @@ void setUp(){
 	for (int i = 0; i < robots.length; i++) {
 		
 		robots[i].moveTo(300 + (100 * i), 650);
-		robots[i].setSpeed(10000);
+		robots[i].setSpeed(500000);
+
 		
 	}
 	
@@ -48,7 +49,7 @@ void setUp(){
 				
 				finished += 1;
 				
-				robots[i].setSpeed(10);
+				robots[i].setSpeed(50);
 				robots[i].move(100);
 				
 				robots[i].moveTo(300 + i * 100, 650);
